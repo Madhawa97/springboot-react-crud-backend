@@ -5,10 +5,9 @@ package com.madhawa.fullstack.controller;
 import com.madhawa.fullstack.model.User;
 import com.madhawa.fullstack.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -21,5 +20,11 @@ public class UserController {
         userService.saveUser(user);            // save
         return "New user is added";
     }
+
+    @GetMapping("/getAll")
+    public List<User> getAllUsers(){
+        return userService.getAllUsers();
+    }
+
 
 }
